@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
-    BrowserModule, // Add this line
+    BrowserModule,
     AppComponent,
     FormulaireComponent,
     // ...
