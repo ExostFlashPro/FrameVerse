@@ -1,21 +1,20 @@
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
-import { FormulaireComponent } from './formulaire/formulaire.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { AlbumModule } from './album/album.module';
 
 
 @NgModule({
   declarations: [
     BrowserModule,
     AppComponent,
-    FormulaireComponent,
-    // ...
+    AlbumModule,
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    // ...
+    AlbumModule,
   ],
   bootstrap: [AppComponent]
 })
