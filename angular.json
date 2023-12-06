@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FrameVerse": {
+    "Frameverse": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/frame-verse",
+            "outputPath": "dist/frameverse",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,7 +27,12 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -57,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "FrameVerse:build:production"
+              "buildTarget": "Frameverse:build:production"
             },
             "development": {
-              "buildTarget": "FrameVerse:build:development"
+              "buildTarget": "Frameverse:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "FrameVerse:build"
+            "buildTarget": "Frameverse:build"
           }
         },
         "test": {
@@ -93,6 +98,6 @@
     }
   },
   "cli": {
-    "analytics": "fbc4f622-6b24-4426-bb43-d69320f19492"
+    "analytics": "de273ff9-fdab-46ec-9eb8-fe4636fd8472"
   }
 }
