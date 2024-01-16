@@ -1,1 +1,31 @@
-<p>album-list works!</p>
+<h2>Liste des albums</h2>
+
+<div>
+  <table>
+    <thead>
+      <th>Id</th>
+      <th>Titre</th>
+      <th>Sous-Titre</th>
+      <th>Nombre de pages</th>
+      <th>Papier</th>
+      <th>Grammage</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let uniqAlbum of listAlbum">
+        <td>{{ uniqAlbum.Id }}</td>
+        <td>{{ uniqAlbum.Titre }}</td>
+        <td>{{ uniqAlbum.SousTitre }}</td>
+        <td>{{ uniqAlbum.NbrPages }}</td>
+        <td>{{ uniqAlbum.papier }}</td>
+        <td>{{ uniqAlbum.grammage }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-album-edit
+  *ngIf="currentAlbum"
+  [model]="currentAlbum"
+  (emitAlbum)="updateList($event)"
+>
+</app-album-edit>
