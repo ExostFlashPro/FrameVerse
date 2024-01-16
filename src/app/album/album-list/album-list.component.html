@@ -12,14 +12,14 @@
       <th>Modifier</th>
     </thead>
     <tbody>
-      <tr *ngFor="let uniqAlbum of listAlbum">
-        <td>{{ uniqAlbum.Id }}</td>
-        <td>{{ uniqAlbum.Titre }}</td>
-        <td>{{ uniqAlbum.SousTitre }}</td>
-        <td>{{ uniqAlbum.NbrPages }}</td>
-        <td>{{ uniqAlbum.papier }}</td>
-        <td>{{ uniqAlbum.grammage }}g</td>
-        <td><button (click)="setCurrentAlbum(uniqAlbum)">Modifier</button></td>
+      <tr *ngFor="let a of listAlbum">
+        <td>{{ a.Id }}</td>
+        <td>{{ a.Titre }}</td>
+        <td>{{ a.SousTitre }}</td>
+        <td>{{ a.NbrPages }}</td>
+        <td>{{ a.papier }}</td>
+        <td>{{ a.grammage }}g</td>
+        <td><button (click)="setCurrentAlbum(a)">Modifier</button></td>
       </tr>
     </tbody>
   </table>

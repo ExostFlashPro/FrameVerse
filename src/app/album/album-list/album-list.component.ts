@@ -31,6 +31,12 @@ export class AlbumListComponent {
     this.listAlbum.push(
       new Album(3, 'Vacances au ski', 'Eté 2023', 150, 'Blanc', 80)
     );
+    this.listAlbum.push(
+      new Album(4, 'Noël 2023', 'Avec la famille', 150, 'Noir', 80)
+    );
+    this.listAlbum.push(
+      new Album(5, 'Nouvel an', 'Avec les copains', 150, 'Noir', 80)
+    );
     this.currentAlbum = this.listAlbum[0];
   }
 
