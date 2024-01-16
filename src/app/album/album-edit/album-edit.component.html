@@ -1,43 +1,43 @@
 <!-- album-edit.component.html -->
 
-<h2>Edit Album</h2>
+<h2>Enregister un album</h2>
 <div class="container">
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <label for="first-name">First Name:</label>
-    <input type="text" id="first-name" formControlName="firstName" />
+    <label for="Titre">Nom de l'album :</label>
+    <input type="text" id="Titre" formControlName="Titre" />
 
-    <label for="last-name">Last Name:</label>
-    <input type="text" id="last-name" formControlName="lastName" />
+    <label for="SousTitre">Sous-titre de l'album:</label>
+    <input type="text" id="SousTitre" formControlName="SousTitre" />
 
-    <div formGroupName="address">
-      <label for="numero">Numero:</label>
-      <input type="text" id="numero" formControlName="numero" />
+    <div formGroupName="type">
+      <label for="NbrPages">Nombre de pages:</label>
+      <input type="text" id="NbrPages" formControlName="NbrPages" />
 
-      <label for="street">Street:</label>
-      <input type="text" id="street" formControlName="street" />
+      <label for="papier">Papier :</label>
+      <input type="text" id="papier" formControlName="papier" />
 
-      <label for="city">City:</label>
-      <input type="text" id="city" formControlName="city" />
-
-      <label for="codePostal">Postal Code:</label>
-      <input type="text" id="codePostal" formControlName="codePostal" />
+      <label for="grammage">Grammage :</label>
+      <input type="text" id="grammage" formControlName="grammage" />
     </div>
 
-    <div>
-      <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <div class="form-group">
+      <button type="submit" (click)="onSubmit()">Submit</button>
+      <button type="button" class="btn btn-secondary" (click)="resetForm()">
+        Reset
+      </button>
     </div>
   </form>
 
   <div *ngIf="submitted">
-    <h3>Form Values Accepted:</h3>
-    <p>First Name: {{ profileForm.value.firstName }}</p>
-    <p>Last Name: {{ profileForm.value.lastName }}</p>
-    <p>Address:</p>
+    <h3>Validation formulaire</h3>
+    <p>Titre : {{ profileForm.value.Titre }}</p>
+    <p>Sous-titre: {{ profileForm.value.SousTitre }}</p>
+    <p>Type d'album :</p>
     <ul>
-      <li>Numero: {{ profileForm.value.address.numero }}</li>
-      <li>Street: {{ profileForm.value.address.street }}</li>
-      <li>City: {{ profileForm.value.address.city }}</li>
-      <li>Postal Code: {{ profileForm.value.address.codePostal }}</li>
+      <li>Nombre de pages : {{ profileForm.value.type.NbrPages }}</li>
+      <li>Papier : {{ profileForm.value.type.papier }}</li>
+      <li>Grammage : {{ profileForm.value.type.grammage }}</li>
     </ul>
   </div>
+  <!--<div *ngIf!="submitted" appHighlight>Chargement en cours...</div>-->
 </div>
