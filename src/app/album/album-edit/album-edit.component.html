@@ -1,0 +1,43 @@
+<!-- album-edit.component.html -->
+
+<h2>Edit Album</h2>
+<div class="container">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" formControlName="firstName" />
+
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" formControlName="lastName" />
+
+    <div formGroupName="address">
+      <label for="numero">Numero:</label>
+      <input type="text" id="numero" formControlName="numero" />
+
+      <label for="street">Street:</label>
+      <input type="text" id="street" formControlName="street" />
+
+      <label for="city">City:</label>
+      <input type="text" id="city" formControlName="city" />
+
+      <label for="codePostal">Postal Code:</label>
+      <input type="text" id="codePostal" formControlName="codePostal" />
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </div>
+  </form>
+
+  <div *ngIf="submitted">
+    <h3>Form Values Accepted:</h3>
+    <p>First Name: {{ profileForm.value.firstName }}</p>
+    <p>Last Name: {{ profileForm.value.lastName }}</p>
+    <p>Address:</p>
+    <ul>
+      <li>Numero: {{ profileForm.value.address.numero }}</li>
+      <li>Street: {{ profileForm.value.address.street }}</li>
+      <li>City: {{ profileForm.value.address.city }}</li>
+      <li>Postal Code: {{ profileForm.value.address.codePostal }}</li>
+    </ul>
+  </div>
+</div>
