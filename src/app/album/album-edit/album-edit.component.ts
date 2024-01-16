@@ -39,7 +39,14 @@ export class AlbumEditComponent {
     this.submitted = false;
 
     if (this.model === null) {
-      this.model = new Album(0, 'Titre vide');
+      this.model = new Album(
+        0,
+        'Titre vide',
+        'pas de description',
+        200,
+        'noir',
+        90
+      );
     } else {
       this.profileForm.patchValue(this.model);
     }

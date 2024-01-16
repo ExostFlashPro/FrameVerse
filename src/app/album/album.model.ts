@@ -8,14 +8,21 @@ export class Album {
   grammage: number;
   date: Date;
 
-  constructor(id: number, titre: string) {
+  constructor(
+    id: number,
+    titre: string,
+    soustitre: string,
+    nbPage: number,
+    papier: string,
+    grammage: number
+  ) {
     this.Id = id;
     this.Titre = titre;
-    this.SousTitre = '';
+    this.SousTitre = soustitre;
 
-    this.NbrPages = 80;
-    this.papier = '';
-    this.grammage = 80;
+    this.NbrPages = nbPage;
+    this.papier = papier;
+    this.grammage = grammage;
 
     this.date = new Date();
   }

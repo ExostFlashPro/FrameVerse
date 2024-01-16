@@ -9,6 +9,7 @@
       <th>Nombre de pages</th>
       <th>Papier</th>
       <th>Grammage</th>
+      <th>Modifier</th>
     </thead>
     <tbody>
       <tr *ngFor="let uniqAlbum of listAlbum">
@@ -17,7 +18,8 @@
         <td>{{ uniqAlbum.SousTitre }}</td>
         <td>{{ uniqAlbum.NbrPages }}</td>
         <td>{{ uniqAlbum.papier }}</td>
-        <td>{{ uniqAlbum.grammage }}</td>
+        <td>{{ uniqAlbum.grammage }}g</td>
+        <td><button (click)="setCurrentAlbum(uniqAlbum)">Modifier</button></td>
       </tr>
     </tbody>
   </table>
