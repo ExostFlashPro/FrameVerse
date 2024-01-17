@@ -1,5 +1,3 @@
-// album-edit.component.ts
-
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Album } from '../album.model';
@@ -9,11 +7,11 @@ import { liveQuery, Observable } from 'dexie';
 import { db } from '../../../indexed.db';
 
 @Component({
-  selector: 'app-album-edit',
-  templateUrl: './album-edit.component.html',
-  styleUrls: ['./album-edit.component.css'],
+  selector: 'app-album-add',
+  templateUrl: './album-add.component.html',
+  styleUrls: ['./album-add.component.css'],
 })
-export class AlbumEditComponent implements OnInit {
+export class AlbumAddComponent implements OnInit {
   profileForm: FormGroup;
 
   submitted = false;
@@ -26,17 +24,17 @@ export class AlbumEditComponent implements OnInit {
     private service: AlbumService
   ) {
     this.profileForm = this.fb.group({
-      Titre: ['', [Validators.required, Validators.minLength(4)]],
-      SousTitre: ['', [Validators.required]],
+      Titre: ['Nom de lalbum', [Validators.required, Validators.minLength(4)]],
+      SousTitre: ["Sous-titre de l'album", [Validators.required]],
       type: this.fb.group({
         NbrPages: [
-          [Validators.required],
-          [Validators.min(0), Validators.max(200)],
+          55,
+          [Validators.required, Validators.min(0), Validators.max(200)],
         ],
-        papier: [''],
+        papier: ['Blanc'],
         grammage: [
-          [Validators.required],
-          [Validators.min(0), Validators.max(150)],
+          80,
+          [Validators.required, Validators.min(0), Validators.max(150)],
         ],
       }),
       date: [null, [Validators.required]],
@@ -50,29 +48,6 @@ export class AlbumEditComponent implements OnInit {
 
   ngOnInit() {
     this.submitted = false;
-
-    if (this.model === null) {
-      this.route.paramMap.subscribe((params) => {
-        if (params.has('id')) {
-          let idAlbum = (params.get('id') ?? 0) as number;
-          this.service.getById(idAlbum)!.then((res) => {
-            if (res) {
-              this.model = res;
-
-              this.profileForm.patchValue(this.model!);
-
-              this.profileForm.get('type')!.patchValue({
-                NbrPages: res.NbrPages,
-                papier: res.papier,
-                grammage: res.grammage,
-              });
-            }
-          });
-        }
-      });
-    } else {
-      this.profileForm.patchValue(this.model);
-    }
   }
 
   onSubmit() {
@@ -96,7 +71,7 @@ export class AlbumEditComponent implements OnInit {
 
   Validation() {
     console.log('Enregistré');
-    this.service.updtAlbum(this.model!);
+    this.service.addAlbum(this.model!);
     this.submitted2 = true;
   }
 

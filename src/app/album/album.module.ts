@@ -5,13 +5,12 @@ import { AlbumListComponent } from './album-list/album-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlbumRoutingModule } from './album-routing.module';
 import { AlbumService } from './album.service';
+import { AlbumAddComponent } from './album-add/album-add.component';
 
 @NgModule({
-  declarations: [AlbumEditComponent, AlbumListComponent],
+  declarations: [AlbumEditComponent, AlbumListComponent, AlbumAddComponent],
   imports: [CommonModule, ReactiveFormsModule, AlbumRoutingModule],
-  exports: [AlbumEditComponent, AlbumListComponent],
+  exports: [AlbumEditComponent, AlbumListComponent, AlbumAddComponent],
   providers: [AlbumService],
 })
-export class AlbumModule {
-  title = 'Albums';
-}
+export class AlbumModule {}

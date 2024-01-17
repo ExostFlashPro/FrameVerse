@@ -32,12 +32,14 @@ export class AlbumService {
   }
 
   async addAlbum(album: Album) {
-    await db.albums.add({ ...album });
+    console.log(album);
+    await db.table('albums').add({ ...album });
     console.log('Album ajouté avec succès.');
   }
 
   async updtAlbum(album: Album) {
-    await db.albums.put({ ...album });
+    console.log(album);
+    await db.table('albums').put(album, album.Id!);
     console.log('Album mis à jour avec succès.');
   }
 
