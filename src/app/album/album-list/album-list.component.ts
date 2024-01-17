@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Album } from '../album.model';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-album-list',
@@ -10,7 +11,7 @@ export class AlbumListComponent {
   listAlbum: Array<Album>;
   currentAlbum: Album | undefined;
 
-  constructor() {
+  constructor(private router: Router) {
     this.listAlbum = new Array<Album>();
   }
 
@@ -38,13 +39,6 @@ export class AlbumListComponent {
       new Album(5, 'Nouvel an', 'Avec les copains', 150, 'Noir', 80)
     );
     this.currentAlbum = this.listAlbum[0];
-  }
-
-  setCurrentAlbum(updatedAlbum: Album) {
-    this.currentAlbum = undefined;
-    setTimeout(() => {
-      this.currentAlbum = updatedAlbum;
-    }, 10);
   }
 
   updateList(updatedAlbum: Album) {

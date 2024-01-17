@@ -4,20 +4,20 @@
 <div class="container">
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <label for="Titre">Nom de l'album :</label>
-    <input type="text" id="Titre" formControlName="Titre" /><br />
+    <input type="text" id="Titre" formControlName="Titre" />
 
     <label for="SousTitre">Sous-titre de l'album:</label>
-    <input type="text" id="SousTitre" formControlName="SousTitre" /><br />
+    <input type="text" id="SousTitre" formControlName="SousTitre" />
 
     <div formGroupName="type">
       <label for="NbrPages">Nombre de pages:</label>
-      <input type="text" id="NbrPages" formControlName="NbrPages" /><br />
+      <input type="text" id="NbrPages" formControlName="NbrPages" />
 
       <label for="papier">Papier :</label>
-      <input type="text" id="papier" formControlName="papier" /><br />
+      <input type="text" id="papier" formControlName="papier" />
 
       <label for="grammage">Grammage :</label>
-      <input type="text" id="grammage" formControlName="grammage" /><br />
+      <input type="text" id="grammage" formControlName="grammage" />
     </div>
 
     <div class="form-group">

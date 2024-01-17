@@ -19,9 +19,7 @@
         <td>{{ a.NbrPages }}</td>
         <td>{{ a.papier }}</td>
         <td>{{ a.grammage }}g</td>
-        <td>
-          <a [routerLink]="['/album', 'edit', a.Id]">Modifier</a>
-        </td>
+        <td><button (click)="setCurrentAlbum(a)">Modifier</button></td>
       </tr>
     </tbody>
   </table>

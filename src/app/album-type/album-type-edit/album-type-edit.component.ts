@@ -2,20 +2,19 @@
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { Album } from '../album.model';
-import { Router } from '@angular/router';
+import { AlbumType } from '../album-type.model';
 
 @Component({
-  selector: 'app-album-edit',
-  templateUrl: './album-edit.component.html',
-  styleUrls: ['./album-edit.component.css'],
+  selector: 'app-album-type-edit',
+  templateUrl: './album-type-edit.component.html',
+  styleUrls: ['./album-type-edit.component.css'],
 })
-export class AlbumEditComponent {
+export class AlbumTypeEditComponent {
   profileForm: FormGroup;
 
   submitted = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder) {
     this.profileForm = this.fb.group({
       Titre: ['', [Validators.required, Validators.minLength(4)]],
       SousTitre: ['', [Validators.required]],
@@ -32,15 +31,15 @@ export class AlbumEditComponent {
   }
 
   @Input()
-  model: Album | null = null;
+  model: AlbumType | null = null;
   @Output()
-  emitAlbum: EventEmitter<Album> = new EventEmitter<Album>();
+  emitAlbum: EventEmitter<AlbumType> = new EventEmitter<AlbumType>();
 
   ngOnInit() {
     this.submitted = false;
 
     if (this.model === null) {
-      this.model = new Album(
+      this.model = new AlbumType(
         0,
         'Titre vide',
         'pas de description',
