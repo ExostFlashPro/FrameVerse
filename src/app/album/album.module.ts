@@ -12,4 +12,6 @@ import { AlbumService } from './album.service';
   exports: [AlbumEditComponent, AlbumListComponent],
   providers: [AlbumService],
 })
-export class AlbumModule {}
+export class AlbumModule {
+  title = 'Albums';
+}

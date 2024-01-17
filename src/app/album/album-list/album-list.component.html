@@ -9,7 +9,7 @@
       <th>Nombre de pages</th>
       <th>Papier</th>
       <th>Grammage</th>
-      <th>Modifier</th>
+      <th>Actions</th>
     </thead>
     <tbody>
       <tr *ngFor="let a of listAlbum">
@@ -20,16 +20,13 @@
         <td>{{ a.papier }}</td>
         <td>{{ a.grammage }}g</td>
         <td>
-          <a [routerLink]="['/album', 'edit', a.Id]">Modifier</a>
+          <a [routerLink]="['/album', 'edit', a.Id]">Modifier</a><br />
+          <!--<a [routerLink]="['/album', a.Id]">Voir</a>-->
         </td>
       </tr>
     </tbody>
   </table>
+  <br />
+  <button type="submit">Créer un nouvel album</button>
 </div>
-
-<app-album-edit
-  *ngIf="currentAlbum"
-  [model]="currentAlbum"
-  (emitAlbum)="updateList($event)"
->
-</app-album-edit>
+<!--<app-footer></app-footer>-->

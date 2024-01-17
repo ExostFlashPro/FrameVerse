@@ -17,7 +17,7 @@ export class AlbumListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getAllAlbums().subscribe((resliste) => {
+    this.service.getAllAlbums().then((resliste) => {
       this.listAlbum = resliste;
       if (this.listAlbum.length > 0) {
         this.currentAlbum = this.listAlbum.at(0);

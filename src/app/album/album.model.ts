@@ -1,5 +1,5 @@
 export class Album {
-  Id: number;
+  Id: number | undefined;
   Titre: string;
   SousTitre: string;
 
@@ -9,14 +9,12 @@ export class Album {
   date: Date;
 
   constructor(
-    id: number,
     titre: string,
     soustitre: string,
     nbPage: number,
     papier: string,
     grammage: number
   ) {
-    this.Id = id;
     this.Titre = titre;
     this.SousTitre = soustitre;
 

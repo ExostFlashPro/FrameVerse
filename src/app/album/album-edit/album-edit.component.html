@@ -21,14 +21,34 @@
     </div>
 
     <div class="form-group">
-      <button type="submit" (click)="onSubmit()">Submit</button>
+      <button type="submit" (click)="onSubmit()">
+        Enregistrer les modifications
+      </button>
       <button type="button" class="btn btn-secondary" (click)="resetForm()">
-        Reset
+        Annuler les modifications
       </button>
     </div>
   </form>
 
   <div *ngIf="submitted">
+    <div *ngIf="profileForm.get('Titre')!.hasError('required')">
+      Titre requis
+    </div>
+    <div *ngIf="profileForm.get('Titre')!.hasError('minlength')">
+      Le titre doit avoir au moins 4 caractères.
+    </div>
+    <div *ngIf="profileForm.get('type.NbrPages')?.hasError('min')">
+      Le nombre de pages doit être supérieur à 2.
+    </div>
+    <div *ngIf="profileForm.get('type.grammage')?.hasError('min')">
+      Le grammage ne peut pas être inférieur à 50g.
+    </div>
+    <div *ngIf="profileForm.get('type.NbrPages')?.hasError('max')">
+      Vous ne pouvez pas avoir plus de 200 pages.
+    </div>
+    <div *ngIf="profileForm.get('type.grammage')?.hasError('max')">
+      Le grammage ne peut pas être supérieur à 150g.
+    </div>
     <h3>Votre nouvel album a été enregistré</h3>
     <p>Titre : {{ profileForm.value.Titre }}</p>
     <p>Sous-titre: {{ profileForm.value.SousTitre }}</p>
@@ -36,8 +56,9 @@
     <ul>
       <li>Nombre de pages : {{ profileForm.value.type.NbrPages }}</li>
       <li>Papier : {{ profileForm.value.type.papier }}</li>
-      <li>Grammage : {{ profileForm.value.type.grammage }}</li>
+      <li>Grammage : {{ profileForm.value.type.grammage }}g</li>
     </ul>
+    <button type="submit" (click)="Validation()">Valider définitivement</button>
   </div>
-  <!--<div *ngIf!="submitted" appHighlight>Chargement en cours...</div>-->
+  <div *ngIf="!submitted" appHighlight>En attente de validation...</div>
 </div>
