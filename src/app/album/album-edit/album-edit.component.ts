@@ -1,6 +1,6 @@
 // album-edit.component.ts
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Album } from '../album.model';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './album-edit.component.html',
   styleUrls: ['./album-edit.component.css'],
 })
-export class AlbumEditComponent {
+export class AlbumEditComponent implements OnInit {
   profileForm: FormGroup;
 
   submitted = false;
@@ -40,14 +40,7 @@ export class AlbumEditComponent {
     this.submitted = false;
 
     if (this.model === null) {
-      this.model = new Album(
-        0,
-        'Titre vide',
-        'pas de description',
-        200,
-        'noir',
-        90
-      );
+      this.model = new Album(0, 'a', 'a', 2, '', 80);
     } else {
       this.profileForm.patchValue(this.model);
     }

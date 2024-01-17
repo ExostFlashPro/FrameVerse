@@ -1,6 +1,6 @@
 <!-- album-edit.component.html -->
 
-<h2>Enregister un album</h2>
+<h2>Modifier un album</h2>
 <div class="container">
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <label for="Titre">Nom de l'album :</label>
@@ -29,7 +29,7 @@
   </form>
 
   <div *ngIf="submitted">
-    <h3>Validation formulaire</h3>
+    <h3>Votre nouvel album a été enregistré</h3>
     <p>Titre : {{ profileForm.value.Titre }}</p>
     <p>Sous-titre: {{ profileForm.value.SousTitre }}</p>
     <p>Type d'album :</p>
